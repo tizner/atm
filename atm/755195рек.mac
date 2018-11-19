@@ -1,0 +1,157 @@
+Description = Регистрация банкомата 755195
+[wait app]
+[wait inp inh]
+"yjp
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (3,28)
+wait 10 sec until cursor at (3,29)
+[wait app]
+[wait inp inh]
+"220812CN
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (5,28)
+wait 10 sec until cursor at (5,29)
+[wait app]
+[wait inp inh]
+"CASH-IN 220812 (RECYCLING)
+[home]
+[down]
+"MOYU0
+"г. Ростов-на-Дону, ул. Красноармейская, 157
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (5,28)
+wait 10 sec until cursor at (5,29)
+[wait app]
+[wait inp inh]
+[down]
+[down]
+[down]
+[down]
+[down]
+"10000
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+"RUR
+"50000
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+"RUR
+"100000
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+"RUR
+"500000
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+"RUR
+[pf5]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0000 at (16,28)
+wait 10 sec until cursor at (16,29)
+[wait app]
+[wait inp inh]
+[end field]
+[Right]
+[Right]
+[Right]
+[Right]
+"USD
+[enter]
+[pf3]
+[wait app]
+[wait inp inh]
+"Y8Z
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (3,28)
+wait 10 sec until cursor at (3,29)
+[wait app]
+[wait inp inh]
+"MOYU220812CN
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0020 at (7,70)
+[wait app]
+[wait inp inh]
+[pf6]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (3,28)
+[wait app]
+[wait inp inh]
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (7,28)
+wait 10 sec until cursor at (7,29)
+[wait app]
+[wait inp inh]
+"RUR
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (9,28)
+wait 10 sec until cursor at (9,29)
+[wait app]
+[wait inp inh]
+"20208810308570000049
+"30233810708570000031
+[enter]
+[pf6]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (3,28)
+[wait app]
+[wait inp inh]
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (7,28)
+wait 10 sec until cursor at (7,29)
+[wait app]
+[wait inp inh]
+"USD
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (9,28)
+wait 10 sec until cursor at (9,29)
+[wait app]
+[wait inp inh]
+"20208840408570000029
+[enter]
+[pf6]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (3,28)
+[wait app]
+[wait inp inh]
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (7,28)
+wait 10 sec until cursor at (7,29)
+[wait app]
+[wait inp inh]
+"EUR
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (9,28)
+wait 10 sec until cursor at (9,29)
+[wait app]
+[wait inp inh]
+"20208978708570000028
+[enter]

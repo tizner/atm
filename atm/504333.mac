@@ -1,0 +1,117 @@
+Description = Регистрация банкомата 504333
+[wait app]
+[wait inp inh]
+"yjp
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (3,28)
+wait 10 sec until cursor at (3,29)
+[wait app]
+[wait inp inh]
+"504333
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (5,28)
+wait 10 sec until cursor at (5,29)
+[wait app]
+[wait inp inh]
+"Банкомат 504333
+[home]
+[down]
+"MOVA0
+"г. Новосибирск, ул. Планетная, д.30.
+[enter]
+[wait inp inh]
+wait 10 sec until FieldAttribute 0008 at (5,28)
+wait 10 sec until cursor at (5,29)
+[wait app]
+[wait inp inh]
+[down]
+[down]
+[down]
+[down]
+[down]
+[Right]
+[Right]
+[Right]
+"100
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+"RUR
+[Right]
+[Right]
+"1000
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+"RUR
+[Right]
+[Right]
+"1000
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+"RUR
+[Right]
+[Right]
+"5000
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+[Right]
+"RUR
+[pf5]
+"USD
+[enter]
+[pf3]
+[wait app]
+[wait inp inh]
+"Y8Z
+[enter]
+[wait inp inh]
+wait 4 sec until FieldAttribute 0008 at (3,28)
+wait 4 sec until cursor at (3,29)
+[wait app]
+[wait inp inh]
+"504333
+[enter]
+[wait inp inh]
+wait 4 sec until FieldAttribute 0020 at (7,70)
+[wait app]
+[wait inp inh]
+[pf6]
+[wait inp inh]
+wait 4 sec until FieldAttribute 0008 at (3,28)
+[wait app]
+[wait inp inh]
+[enter]
+[wait inp inh]
+wait 4 sec until FieldAttribute 0008 at (7,28)
+wait 4 sec until cursor at (7,29)
+[wait app]
+[wait inp inh]
+"RUR
+[enter]
+[wait inp inh]
+wait 5 sec until FieldAttribute 0008 at (9,28)
+wait 5 sec until cursor at (9,29)
+[wait app]
+[wait inp inh]
+"20208810108110000078
+"30233810308110000053
+"30305810100000122300
+[down]
+[down]
+[enter]
