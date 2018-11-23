@@ -1,13 +1,13 @@
-#-*-coding: cp1251 -*-
+#-*-coding: utf-8 -*-
 def cupurnosty(i):
     cup = array[i].strip()
     cup_nom = cup.split(" ")[0]
     cup_val = cup.split(" ")[1].replace('\n', '')
     return(cup_nom,cup_val)
 
-array = list(open('банкомат.txt', 'r'))
+array = list(open('Р±Р°РЅРєРѕРјР°С‚.txt', 'r'))
 
-kniga = open('Книга.csv', 'r')
+kniga = open('РљРЅРёРіР°.csv', 'r')
 
 schet_obsl = ''
 schet_inkas = ''
@@ -22,69 +22,80 @@ schet_obs_rur_cn = ''
 schet_obs_usd_cn = ''
 schet_obs_eur_cn = ''
 
+schet_inkas_rur_cn =''
+schet_inkas_usd_cn =''
+schet_inkas_eur_cn =''
+
+schet_izlish_rur_cn=''
+schet_izlish_usd_cn=''
+schet_izlish_eur_cn=''
+
+
+
+
 for i, st in enumerate(array):
-    # берем номер банкомата
-    if '1. Присвоенный номер банкомата (терминал)' in st:
+    # Р±РµСЂРµРј РЅРѕРјРµСЂ Р±Р°РЅРєРѕРјР°С‚Р°
+    if '1. РџСЂРёСЃРІРѕРµРЅРЅС‹Р№ РЅРѕРјРµСЂ Р±Р°РЅРєРѕРјР°С‚Р° (С‚РµСЂРјРёРЅР°Р»)' in st:
         b = st.split(":")
         b = b[1].replace('.\n', '')
 
-    # берем  адрес
-    if 'Населенный пункт:' in st:
+    # Р±РµСЂРµРј  Р°РґСЂРµСЃ
+    if 'РќР°СЃРµР»РµРЅРЅС‹Р№ РїСѓРЅРєС‚:' in st:
         g = st.split(":")
         g = g[1].replace('\n', '').strip()
 
-    if 'Улица:' in st:
+    if 'РЈР»РёС†Р°:' in st:
         s = st.split(":")
         s = s[1].replace('\n', '').strip()
 
-    if 'Дом:' in st:
+    if 'Р”РѕРј:' in st:
         d = st.split(":")
         d = d[1].replace('\n', '').strip()
 
-    # купюрность todo проверка количества диспенсеров
+    # РєСѓРїСЋСЂРЅРѕСЃС‚СЊ todo РїСЂРѕРІРµСЂРєР° РєРѕР»РёС‡РµСЃС‚РІР° РґРёСЃРїРµРЅСЃРµСЂРѕРІ
 
-    if 'Купюрность' in st:
+    if 'РљСѓРїСЋСЂРЅРѕСЃС‚СЊ' in st:
         cup1_nom, cup1_val = cupurnosty(i+1)
-        # print(cup1_nom + ' и ' + cup1_val)
+        # print(cup1_nom + ' Рё ' + cup1_val)
 
         cup2_nom, cup2_val = cupurnosty(i + 2)
-        # print(cup2_nom + ' и ' + cup2_val)
+        # print(cup2_nom + ' Рё ' + cup2_val)
 
         cup3_nom, cup3_val = cupurnosty(i + 3)
-        # print(cup3_nom + ' и ' + cup3_val)
+        # print(cup3_nom + ' Рё ' + cup3_val)
 
         cup4_nom, cup4_val = cupurnosty(i + 4)
-        # print(cup4_nom + ' и ' + cup4_val)
+        # print(cup4_nom + ' Рё ' + cup4_val)
 
-    if 'Отделение Банка, на бранче которого необходимо открыть' in st:
+    if 'РћС‚РґРµР»РµРЅРёРµ Р‘Р°РЅРєР°, РЅР° Р±СЂР°РЅС‡Рµ РєРѕС‚РѕСЂРѕРіРѕ РЅРµРѕР±С…РѕРґРёРјРѕ РѕС‚РєСЂС‹С‚СЊ' in st:
         bran = st.split(":")
         bran = bran[1].replace('\n', '').strip()
         print(bran)
 
-    if 'Счет обслуживания ПТС' in st:
+    if 'РЎС‡РµС‚ РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ РџРўРЎ' in st:
         schet_obsl = array[i+1].replace('\n', '').strip()
         print(schet_obsl)
 
-    if 'Счета дебиторской задолженности ПТС' in st:
+    if 'РЎС‡РµС‚Р° РґРµР±РёС‚РѕСЂСЃРєРѕР№ Р·Р°РґРѕР»Р¶РµРЅРЅРѕСЃС‚Рё РџРўРЎ' in st:
         schet_deb_zadolsh = array[i+1].replace('\n', '').strip()
         print(schet_deb_zadolsh)
 
-    if 'Корр.счет подкрепления ПТС' in st:
+    if 'РљРѕСЂСЂ.СЃС‡РµС‚ РїРѕРґРєСЂРµРїР»РµРЅРёСЏ РџРўРЎ' in st:
         schet_kor_podkr = array[i+1].replace('\n', '').strip()
         print(schet_kor_podkr)
 
-    if 'Корр.счет инкассации ПТС' in st:
+    if 'РљРѕСЂСЂ.СЃС‡РµС‚ РёРЅРєР°СЃСЃР°С†РёРё РџРўРЎ' in st:
         schet_inkas = array[i+1].replace('\n', '').strip()
 
-    if 'Счет излишков ПТС' in st:
+    if 'РЎС‡РµС‚ РёР·Р»РёС€РєРѕРІ РџРўРЎ' in st:
         schet_izlish = array[i+1].replace('\n', '').strip()
 
-    if 'Счет подкрепления ПТС' in st:
+    if 'РЎС‡РµС‚ РїРѕРґРєСЂРµРїР»РµРЅРёСЏ РџРўРЎ' in st:
         schet_deb_zad_usd = array[i+1].replace('\n', '').strip()
 
 
 
-    if 'Счета обслуживания Cash In' in st:
+    if 'РЎС‡РµС‚Р° РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ Cash In' in st:
         for item in range(1, 4):
             sch = array[i + item].replace('\n', '').strip()
             if sch[6] == "1":
@@ -99,14 +110,14 @@ for i, st in enumerate(array):
                 schet_obs_eur_cn = sch
                 print('schet_obsl_cashin_rus:' + schet_obs_eur_cn +'\n')
 
-adr_old = ('г. ' + g + ', ул. ' + s + ', д.' + d + '.')
+adr_old = ('Рі. ' + g + ', СѓР». ' + s + ', Рґ.' + d + '.')
 print(adr_old)
-adr = input('исправить: ')
+adr = input('РёСЃРїСЂР°РІРёС‚СЊ: ')
 if not adr:
     adr = adr_old
 print(adr)
 
-# поиск отделения todo  а если отеделний много?
+# РїРѕРёСЃРє РѕС‚РґРµР»РµРЅРёСЏ todo  Р° РµСЃР»Рё РѕС‚РµРґРµР»РЅРёР№ РјРЅРѕРіРѕ?
 for line in kniga:
     if bran.lower() in line.lower():
         branch = line.split(';')
@@ -116,7 +127,7 @@ for line in kniga:
 
 my_file = open(b + ".mac", 'w')
 
-my_file.write("Description = Регистрация банкомата " + b + '\n')
+my_file.write("Description = Р РµРіРёСЃС‚СЂР°С†РёСЏ Р±Р°РЅРєРѕРјР°С‚Р° " + b + '\n')
 my_file.write("[wait app]" + '\n')
 my_file.write("[wait inp inh]" + '\n')
 my_file.write('"yjp' + '\n')
@@ -133,7 +144,7 @@ my_file.write("wait 10 sec until FieldAttribute 0008 at (5,28)"+ '\n')
 my_file.write("wait 10 sec until cursor at (5,29)"+ '\n')
 my_file.write("[wait app]" + '\n')
 my_file.write("[wait inp inh]" + '\n')
-my_file.write('"Банкомат ' + b + '\n')
+my_file.write('"Р‘Р°РЅРєРѕРјР°С‚ ' + b + '\n')
 my_file.write("[home]" + '\n')
 my_file.write("[down]" + '\n')
 my_file.write('"' + branch + "0" + '\n')
@@ -381,7 +392,7 @@ my_file.write("[enter]" + '\n')
 
 if schet_obs_rur_cn != '':
     my_file2 = open(b + "CN.mac", 'w')
-    my_file2.write("Description = Добавление счетов " + b + '\n')
+    my_file2.write("Description = Р”РѕР±Р°РІР»РµРЅРёРµ СЃС‡РµС‚РѕРІ " + b + '\n')
     my_file2.write("[wait app]" + '\n')
     my_file2.write("[wait inp inh]" + '\n')
     my_file2.write('"yjp' + '\n')
