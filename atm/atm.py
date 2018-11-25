@@ -9,6 +9,8 @@ array = list(open('банкомат.txt', 'r'))
 
 kniga = open('Книга.csv', 'r')
 
+
+branch =''
 schet_obsl = ''
 schet_inkas = ''
 schet_izlish = ''
