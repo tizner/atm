@@ -1,9 +1,58 @@
 #-*-coding: utf-8 -*-
+
 def cupurnosty(i):
     cup = array[i].strip()
     cup_nom = cup.split(" ")[0]
     cup_val = cup.split(" ")[1].replace('\n', '')
     return(cup_nom,cup_val)
+
+
+def if_schet_deb_zad(valuta,schet_obs, schet_deb_zad, schet_kor_podkrep, schet_inkas, schet_izlish):
+    my_file.write("[enter]" + '\n')
+    my_file.write("[pf6]" + '\n')
+    my_file.write("[wait inp inh]" + '\n')
+    my_file.write("wait 10 sec until FieldAttribute 0008 at (3,28)" + '\n')
+    my_file.write("[wait app]" + '\n')
+    my_file.write("[wait inp inh]" + '\n')
+    my_file.write("[enter]" + '\n')
+    my_file.write("[wait inp inh]" + '\n')
+    my_file.write("wait 10 sec until FieldAttribute 0008 at (7,28)" + '\n')
+    my_file.write("wait 10 sec until cursor at (7,29)" + '\n')
+    my_file.write("[wait app]" + '\n')
+    my_file.write("[wait inp inh]" + '\n')
+    my_file.write('"'+valuta + '\n')
+    my_file.write("[enter]" + '\n')
+    my_file.write("[wait inp inh]" + '\n')
+    my_file.write("wait 10 sec until FieldAttribute 0008 at (9,28)" + '\n')
+    my_file.write("wait 10 sec until cursor at (9,29)" + '\n')
+    my_file.write("[wait app]" + '\n')
+    my_file.write("[wait inp inh]" + '\n')
+
+    if schet_obs != '':
+        my_file.write('"' + schet_obs + '\n')
+    else:
+        my_file.write("[down]" + '\n')
+
+    if schet_deb_zad != '':
+        my_file.write('"' + schet_deb_zad + '\n')
+    else:
+        my_file.write("[down]" + '\n')
+
+    if schet_kor_podkrep != '':
+        my_file.write('"' + schet_kor_podkrep + '\n')
+    else:
+        my_file.write("[down]" + '\n')
+
+    if schet_inkas != '':
+        my_file.write('"' + schet_inkas + '\n')
+    else:
+        my_file.write("[down]" + '\n')
+
+    if schet_izlish != '':
+        my_file.write('"' + schet_izlish + '\n')
+    else:
+        my_file.write("[down]" + '\n')
+
 
 array = list(open('банкомат.txt', 'r'))
 
@@ -292,101 +341,18 @@ if schet_izlish != '':
 else:
     my_file.write("[down]" + '\n')
 
+
+
+
+
 if schet_deb_zad_usd != '':
-    my_file.write("[enter]" + '\n')
-    my_file.write("[pf6]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write("wait 10 sec until FieldAttribute 0008 at (3,28)" + '\n')
-    my_file.write("[wait app]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write("[enter]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write("wait 10 sec until FieldAttribute 0008 at (7,28)" + '\n')
-    my_file.write("wait 10 sec until cursor at (7,29)" + '\n')
-    my_file.write("[wait app]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write('"USD' + '\n')
-    my_file.write("[enter]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write("wait 10 sec until FieldAttribute 0008 at (9,28)" + '\n')
-    my_file.write("wait 10 sec until cursor at (9,29)" + '\n')
-    my_file.write("[wait app]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-
-    if schet_obs_usd != '':
-        my_file.write('"' + schet_obs_usd + '\n')
-    else:
-        my_file.write("[down]" + '\n')
-
-
-    if schet_deb_zad_usd != '':
-        my_file.write('"' + schet_deb_zad_usd + '\n')
-    else:
-        my_file.write("[down]" + '\n')
-
-    if schet_kor_podkrep_usd != '':
-        my_file.write('"' + schet_kor_podkrep_usd + '\n')
-    else:
-        my_file.write("[down]" + '\n')
-
-    if schet_inkas_usd != '':
-        my_file.write('"' + schet_inkas_usd + '\n')
-    else:
-        my_file.write("[down]" + '\n')
-
-
-    if schet_izlish_usd != '':
-        my_file.write('"' + schet_izlish_usd + '\n')
-    else:
-        my_file.write("[down]" + '\n')
+    if_schet_deb_zad('USD', schet_obs_usd, schet_deb_zad_usd, schet_kor_podkrep_usd, schet_inkas_usd, schet_izlish_usd)
 
 
 if schet_deb_zad_eur != '':
-    my_file.write("[enter]" + '\n')
-    my_file.write("[pf6]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write("wait 10 sec until FieldAttribute 0008 at (3,28)" + '\n')
-    my_file.write("[wait app]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write("[enter]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write("wait 10 sec until FieldAttribute 0008 at (7,28)" + '\n')
-    my_file.write( "wait 10 sec until cursor at (7,29)" + '\n')
-    my_file.write("[wait app]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write( '"eur' + '\n')
-    my_file.write("[enter]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    my_file.write( "wait 10 sec until FieldAttribute 0008 at (9,28)" + '\n')
-    my_file.write("wait 10 sec until cursor at (9,29)" + '\n')
-    my_file.write("[wait app]" + '\n')
-    my_file.write("[wait inp inh]" + '\n')
-    if schet_obs_eur != '':
-        my_file.write('"' + schet_obs_eur + '\n')
-    else:
-        my_file.write("[down]" + '\n')
+    if_schet_deb_zad('EUR', schet_obs_eur, schet_deb_zad_eur, schet_kor_podkrep_eur, schet_inkas_eur, schet_izlish_eur)
 
 
-    if schet_deb_zad_eur != '':
-        my_file.write('"' + schet_deb_zad_eur + '\n')
-    else:
-        my_file.write("[down]" + '\n')
-
-    if schet_kor_podkrep_eur != '':
-        my_file.write('"' + schet_kor_podkrep_eur + '\n')
-    else:
-        my_file.write("[down]" + '\n')
-
-    if schet_inkas_eur != '':
-        my_file.write('"' + schet_inkas_eur + '\n')
-    else:
-        my_file.write("[down]" + '\n')
-
-
-    if schet_izlish_eur != '':
-        my_file.write('"' + schet_izlish_eur + '\n')
-    else:
-        my_file.write("[down]" + '\n')
 
 my_file.write("[enter]" + '\n')
 
