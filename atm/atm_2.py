@@ -1,9 +1,14 @@
 # -*-coding: utf-8 -*-
 
+#todo перенести в атм
 def cupurnosty(i):
     cup = array[i].strip()
     cup_nom = cup.split(" ")[0]
     cup_val = cup.split(" ")[1].replace('\n', '')
+    if not cup_nom.isdigit() :
+        cup_nom = '0'
+        cup_val = 'RUR'
+
     return(cup_nom,cup_val)
 
 
@@ -54,7 +59,7 @@ def if_schet_deb_zad(valuta,schet_obs, schet_deb_zad, schet_kor_podkrep, schet_i
         my_file.write("[down]" + '\n')
 
 
-array = list(open('банкомат.txt', 'r'))
+array = list(open('банкомат  2222.txt', 'r'))
 
 kniga = open('Книга.csv', 'r')
 
@@ -65,6 +70,7 @@ schet_inkas = ''
 schet_izlish = ''
 schet_kor_podkr = ''
 
+schet_deb_zadolsh = ''
 schet_deb_zad_usd = ''
 schet_deb_zad_eur = ''
 
@@ -76,6 +82,13 @@ schet_obs_eur_cn = ''
 schet_inkas_rur_cn =''
 schet_inkas_usd_cn =''
 schet_inkas_eur_cn =''
+
+schet_kor_podkr_rur_cn = ''
+schet_kor_podkr_usd_cn = ''
+schet_kor_podkr_eur_cn = ''
+
+
+
 
 schet_izlish_rur_cn=''
 schet_izlish_usd_cn=''
@@ -103,20 +116,18 @@ for i, st in enumerate(array):
         d = st.split(":")
         d = d[1].replace('\n', '').strip()
 
-    # купюрность todo проверка количества диспенсеров
-
     if 'Купюрность' in st:
         cup1_nom, cup1_val = cupurnosty(i+1)
-        # print(cup1_nom + ' и ' + cup1_val)
+        print(cup1_nom + ' и ' + cup1_val)
 
         cup2_nom, cup2_val = cupurnosty(i + 2)
-        # print(cup2_nom + ' и ' + cup2_val)
+        print(cup2_nom + ' и ' + cup2_val)
 
         cup3_nom, cup3_val = cupurnosty(i + 3)
-        # print(cup3_nom + ' и ' + cup3_val)
+        print(cup3_nom + ' и ' + cup3_val)
 
         cup4_nom, cup4_val = cupurnosty(i + 4)
-        # print(cup4_nom + ' и ' + cup4_val)
+        print(cup4_nom + ' и ' + cup4_val)
 
     if 'Отделение Банка, на бранче которого необходимо открыть' in st:
         bran = st.split(":")
@@ -151,15 +162,47 @@ for i, st in enumerate(array):
             sch = array[i + item].replace('\n', '').strip()
             if sch[6] == "1":
                 schet_obs_rur_cn = sch
-                print('schet_obsl_cashin_rus:' + schet_obs_rur_cn +'\n')
+                print('schet_obsl_cashin_rus:' + schet_obs_rur_cn)
 
             if sch[6] == "4":
                 schet_obs_usd_cn = sch
-                print('schet_obsl_cashin_usd:' + schet_obs_usd_cn +'\n')
+                print('schet_obsl_cashin_usd:' + schet_obs_usd_cn)
 
             if sch[6] == "7":
                 schet_obs_eur_cn = sch
-                print('schet_obsl_cashin_rus:' + schet_obs_eur_cn +'\n')
+                print('schet_obsl_cashin_rus:' + schet_obs_eur_cn)
+
+    if 'Корр.счет инкассации Cash-In' in st:
+        for item in range(1, 4):
+            sch = array[i + item].replace('\n', '').strip()
+            if sch[6] == "1":
+                schet_inkas_rur_cn = sch
+                print('schet_inkas_rur_cn:' + schet_inkas_rur_cn)
+
+            if sch[6] == "4":
+                schet_inkas_usd_cn = sch
+                print('schet_inkas_usd_cn:' + schet_inkas_usd_cn)
+
+            if sch[6] == "7":
+                schet_inkas_eur_cn = sch
+                print('schet_inkas_eur_cn:' + schet_inkas_eur_cn)
+
+    if 'Корр.счета подкреполения Cash-In:' in st:
+        for item in range(1, 4):
+            sch = array[i + item].replace('\n', '').strip()
+            if sch[6] == "1":
+                schet_kor_podkr_rur_cn = sch
+                print('schet_kor_podkr_rur_cn:' + schet_kor_podkr_rur_cn)
+
+            if sch[6] == "4":
+                schet_kor_podkr_usd_cn = sch
+                print('schet_kor_podkr_usd_cn:' + schet_kor_podkr_usd_cn)
+
+            if sch[6] == "7":
+                schet_kor_podkr_eur_cn = sch
+                print('schet_kor_podkr_eur_cn:' + schet_kor_podkr_eur_cn)
+
+
 
 adr_old = ('г. ' + g + ', ул. ' + s + ', д.' + d + '.')
 print(adr_old)
