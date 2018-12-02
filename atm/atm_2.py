@@ -70,7 +70,7 @@ schet_inkas = ''
 schet_izlish = ''
 schet_kor_podkr = ''
 
-schet_deb_zadolsh = ''
+schet_deb_zad_rur = ''
 schet_deb_zad_usd = ''
 schet_deb_zad_eur = ''
 
@@ -79,21 +79,21 @@ schet_obs_rur_cn = ''
 schet_obs_usd_cn = ''
 schet_obs_eur_cn = ''
 
-schet_inkas_rur_cn =''
-schet_inkas_usd_cn =''
-schet_inkas_eur_cn =''
+schet_inkas_rur_cn = ''
+schet_inkas_usd_cn = ''
+schet_inkas_eur_cn = ''
 
 schet_kor_podkr_rur_cn = ''
 schet_kor_podkr_usd_cn = ''
 schet_kor_podkr_eur_cn = ''
 
+schet_izlish_rur_cn= ''
+schet_izlish_usd_cn= ''
+schet_izlish_eur_cn= ''
 
-
-
-schet_izlish_rur_cn=''
-schet_izlish_usd_cn=''
-schet_izlish_eur_cn=''
-
+schet_deb_zad_rur_cn = ''
+schet_deb_zad_usd_cn = ''
+schet_deb_zad_eur_cn = ''
 
 
 
@@ -139,8 +139,8 @@ for i, st in enumerate(array):
         print(schet_obsl)
 
     if 'Счета дебиторской задолженности ПТС' in st:
-        schet_deb_zadolsh = array[i+1].replace('\n', '').strip()
-        print(schet_deb_zadolsh)
+        schet_deb_zad_rur = array[i + 1].replace('\n', '').strip()
+        print(schet_deb_zad_rur)
 
     if 'Корр.счет подкрепления ПТС' in st:
         schet_kor_podkr = array[i+1].replace('\n', '').strip()
@@ -201,6 +201,24 @@ for i, st in enumerate(array):
             if sch[6] == "7":
                 schet_kor_podkr_eur_cn = sch
                 print('schet_kor_podkr_eur_cn:' + schet_kor_podkr_eur_cn)
+
+    if 'Счет деб. задолженности Cash In:' in st:
+        for item in range(1, 7):
+            sch = array[i + item].replace('\n', '').strip()
+            sch1 = array[i+1 + item].replace('\n', '').strip()
+            if sch[6] == "1" and sch1[6] == "1":
+                schet_deb_zad_rur_cn = sch
+                print('schet_deb_zad_rur_cn:' + schet_deb_zad_rur_cn)
+
+            if sch[6] == "4" and sch1[6] == "4":
+                schet_deb_zad_usd_cn = sch
+                print('schet_deb_zad_usd_cn:' + schet_deb_zad_usd_cn)
+
+            if sch[6] == "7" and sch1[6] == "7":
+                schet_deb_zad_eur_cn = sch
+                print('schet_deb_zad_eur_cn:' + schet_deb_zad_eur_cn)
+
+
 
 
 
@@ -347,8 +365,8 @@ if schet_obsl != '':
 else:
     my_file.write("[down]" + '\n')
 
-if schet_deb_zadolsh != '':
-    my_file.write('"' + schet_deb_zadolsh + '\n')
+if schet_deb_zad_rur != '':
+    my_file.write('"' + schet_deb_zad_rur + '\n')
 else:
     my_file.write("[down]" + '\n')
 
